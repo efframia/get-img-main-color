@@ -1,0 +1,31 @@
+{
+  "name": "get-img-main-color",
+  "version": "0.0.1",
+  "description": "This package could get the main color of part or full of an image.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack"
+  },
+  "keywords": [
+    "pixels",
+    "main",
+    "color",
+    "canvas"
+  ],
+  "author": "efframia",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:efframia/get-img-main-color.git"
+  },
+  "dependencies": {
+    "canvas": "^2.11.0"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "terser-webpack-plugin": "^5.3.7",
+    "webpack": "^5.76.2",
+    "webpack-cli": "^5.0.1"
+  }
+}
