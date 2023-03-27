@@ -13,8 +13,8 @@ return /******/ (() => { // webpackBootstrap
 /* 0 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-const getAreaPixels = __webpack_require__(1);
-const getColor = __webpack_require__(3);
+const getAreaPixels = typeof window === "undefined" ? __webpack_require__(1) : __webpack_require__(3);
+const getColor = __webpack_require__(4);
 
 module.exports = async function(url, imgArea = {}) {
     const pixels = await getAreaPixels(url, imgArea);
@@ -65,6 +65,49 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__2__;
 
 /***/ }),
 /* 3 */
+/***/ ((module) => {
+
+function loadImage(src) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.crossOrigin = "Anonymous"
+        img.onload = () => resolve(img);
+        img.onerror = (err) => reject(err);
+        img.src = src;
+    });
+}
+
+function isNullObj(obj) {
+    return !Object.keys(obj).length;
+}
+
+async function getAreaPixels(url, imgArea) {
+    const img = await loadImage(url);
+    const canvas = document.createElement('canvas');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+
+    let pixels;
+    if (isNullObj(imgArea)) {
+        pixels = ctx.getImageData(0, 0, img.width, img.height);
+    } else {
+        pixels = ctx.getImageData(
+            imgArea.x,
+            imgArea.y,
+            imgArea.width,
+            imgArea.height
+        );
+    }
+    return pixels.data;
+}
+
+module.exports = getAreaPixels;
+
+
+/***/ }),
+/* 4 */
 /***/ ((module) => {
 
 function getColor(pixels) {

@@ -1,4 +1,4 @@
-const getAreaPixels = require('./getAreaPixels');
+const getAreaPixels = typeof window === "undefined" ? require('./getAreaPixelsInNode') : require('./getAreaPixelsInBrowser');
 const getColor = require('./getColor');
 
 module.exports = async function(url, imgArea = {}) {
