@@ -1,6 +1,6 @@
 {
   "name": "get-img-main-color",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This package could get the main color of part or full of an image.",
   "main": "index.js",
   "scripts": {
