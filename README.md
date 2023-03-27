@@ -2,8 +2,10 @@
 This package could get the main color of part or full of an image
 获取一张图片部分区域/整个区域的主色值
 
-# install
-`npm install get-img-main-color-by-canvas`
+# Install
+```
+npm install get-img-main-color-by-canvas
+```
 
 # Params
 Input Parameters
@@ -18,7 +20,7 @@ Output Parameters
 | color | String | the color using rgb format |
 
 # How to use
-# Tip: use Promise/await
+Tip: use Promise/await
 ```
 const getMainColor = require('get-img-main-color-by-canvas')
 
