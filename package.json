@@ -1,5 +1,5 @@
 {
-  "name": "get-img-main-color",
+  "name": "get-img-main-color-by-canvas",
   "version": "1.0.1",
   "description": "This package could get the main color of part or full of an image.",
   "main": "index.js",
